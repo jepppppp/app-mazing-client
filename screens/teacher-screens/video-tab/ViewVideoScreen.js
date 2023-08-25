@@ -8,14 +8,15 @@ import { connect } from "react-redux";
 import { setVideos } from "../../../redux";
 
 const TeacherVideoPage = (props) => {
-  const [datas, setDatas] = useState([]);
   const { width } = Dimensions.get("screen");
 
   const load = async () => {
     await axios_config
       .get("video/")
       .then((res) => {
-        let response = res?.data?.data;
+        let response = res?.data?.data.filter(
+          (rd) => rd?.category == props?.credentials.grade
+        );
         props.setVideos(response);
       })
       .catch((e) => {
@@ -46,6 +47,7 @@ const TeacherVideoPage = (props) => {
 const mapStateToProps = (state) => {
   return {
     videos: state.user.videos,
+    credentials: state?.user?.credentials,
   };
 };
 

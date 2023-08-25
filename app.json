@@ -9,8 +9,8 @@
         }
       ]
     ],
-    "name": "Appmazing",
-    "slug": "appmazing-client",
+    "name": "App-Mazing",
+    "slug": "App-Mazing",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -36,7 +36,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": "375545a3-d73d-4def-b25a-dfc8f29c2565"
+        "projectId": "0c8dfa82-0c1f-480b-ba95-b69406989f98"
       }
     }
   }

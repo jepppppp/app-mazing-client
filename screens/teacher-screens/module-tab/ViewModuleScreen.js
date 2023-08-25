@@ -7,14 +7,14 @@ import { ModuleSvg } from "../../../components/svg-components";
 import { connect } from "react-redux";
 import { setModules } from "../../../redux";
 const TeacherModulePage = (props) => {
-  const [datas, setDatas] = useState([]);
   const { width } = Dimensions.get("screen");
   const load = async () => {
     await axios_config
       .get("module")
       .then((res) => {
-        let response = res?.data?.data;
-        setDatas(response);
+        let response = res?.data?.data.filter(
+          (rd) => rd?.category == props?.credentials.grade
+        );
         props.setModules(response);
       })
       .catch((e) => {
@@ -44,6 +44,7 @@ const TeacherModulePage = (props) => {
 const mapStateToProps = (state) => {
   return {
     modules: state.user.modules,
+    credentials: state?.user?.credentials,
   };
 };
 

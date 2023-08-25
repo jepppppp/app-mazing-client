@@ -13,7 +13,9 @@ const TeacherQuizPage = (props) => {
     await axios_config
       .get("quiz")
       .then((res) => {
-        let response = res?.data?.data;
+        let response = res?.data?.data.filter(
+          (rd) => rd?.category == props?.credentials.grade
+        );
         setDatas(response);
         props.setQuizzes(response);
       })
@@ -45,6 +47,7 @@ const TeacherQuizPage = (props) => {
 const mapStateToProps = (state) => {
   return {
     quizzes: state.user.quizzes,
+    credentials: state?.user?.credentials,
   };
 };
 

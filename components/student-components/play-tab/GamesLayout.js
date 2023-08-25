@@ -199,48 +199,44 @@ const PlayMenu = (props) => {
             >
               <View
                 style={{
-                  //   flex: 1,
-                  flexDirection: "column",
+                  flex: 1,
                   alignItems: "center",
+                  justifyContent: "center",
                   flexShrink: 1,
-                  marginRight: 10,
+                  // marginRight: 10,
                 }}
               >
-                <TouchableOpacity
-                  onPress={() => {
-                    props.navigation.navigate(`game-${item.key}`);
+                <View
+                  style={{
+                    borderRadius: 100,
+                    backgroundColor: item.backgroundColor,
+                    padding: 20,
+                    borderRadius: 100,
+                    overflow: "hidden",
                   }}
                 >
-                  <View
+                  <Image
+                    source={item.image}
                     style={{
-                      borderRadius: 100,
-                      backgroundColor: item.backgroundColor,
-                      padding: 20,
-                      borderRadius: 100,
-                      overflow: "hidden",
+                      width: 150,
+                      resizeMode: "contain",
+                      height: 150,
                     }}
-                  >
-                    <Image
-                      source={item.image}
-                      style={{
-                        width: 150,
-                        resizeMode: "contain",
-                        height: 150,
-                      }}
-                    />
-                  </View>
-                </TouchableOpacity>
+                  />
+                </View>
 
                 <View
                   style={{
-                    marginLeft: 100,
+                    // marginLeft: 70,
                     marginTop: 10,
+                    width: width * 0.6,
                   }}
                 >
                   <Text
                     style={{
                       fontSize: 30,
                       color: "white",
+                      textAlign: "center",
                       fontFamily: "semibold",
                     }}
                   >
@@ -252,12 +248,40 @@ const PlayMenu = (props) => {
                       color: "white",
                       textAlign: "center",
                       flexShrink: 1,
-                      textAlign: "left",
+                      textAlign: "justify",
                       fontFamily: "regular",
                     }}
                   >
                     {item.description}
                   </Text>
+                  <TouchableOpacity
+                    onPress={() => {
+                      props.navigation.navigate(`game-${item.key}`);
+                    }}
+                  >
+                    <View
+                      style={{
+                        alignItems: "center",
+                        flexDirection: "row",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Text
+                        style={{
+                          backgroundColor: item?.backgroundColor,
+                          borderRadius: 50,
+                          color: "white",
+                          padding: 10,
+                          textAlign: "center",
+                          marginTop: 10,
+                          width: 150,
+                          fontFamily: "semibold",
+                        }}
+                      >
+                        Play
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>

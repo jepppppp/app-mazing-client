@@ -21,7 +21,7 @@ const Timer = ({
   credentials,
   helpHandler,
 }) => {
-  const MAX = 2;
+  const MAX = 300;
   const timeRef = useRef();
   const [countDown, setCountDown] = useState(MAX);
   const highscoreDoneRef = useRef(false);
@@ -33,7 +33,10 @@ const Timer = ({
         if (countDown == 1) {
           playSound(require("../../assets/audio/sfx/gameover_sfx.wav"));
           if (game_number > -1 && !isAssestment && temp_timer <= 0) {
-            highscoreHandler();
+            if (points > 0) {
+              console.log("TALO PERO PASOK");
+              highscoreHandler();
+            }
           }
         }
       }
@@ -44,7 +47,6 @@ const Timer = ({
       }
     }, 900);
 
-    console.log(timeRef);
     return () => {
       clearInterval(interval);
     };
@@ -60,7 +62,8 @@ const Timer = ({
       lrn: credentials?.id_number,
       game_title: game_number,
       name: `${credentials?.first_name} ${credentials?.last_name}`,
-      points: countDown,
+      points: points,
+      duration: countDown == 1 ? 0 : countDown,
     };
     console.log("pasok moto", newData);
     await axios_config

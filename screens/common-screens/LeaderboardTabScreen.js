@@ -242,7 +242,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
               // is teacher
               credentials?.role == 2 && (
                 <Text style={{ fontSize: 17, fontFamily: "semibold" }}>
-                  Duration
+                  Points and Duration
                 </Text>
               )
             }
@@ -343,7 +343,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
                       }}
                     >
                       {credentials?.role == 2
-                        ? timeFormatter(item?.points)
+                        ? `${item?.points} in ${timeFormatter(item?.duration)}`
                         : "History"}
                     </Text>
                   </TouchableOpacity>

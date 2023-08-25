@@ -28,7 +28,7 @@ const LeaderboardHistory = (props) => {
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
       <ScrollView>
-        {data?.map(({ name, points, createdAt }, id) => (
+        {data?.map(({ name, duration, points, createdAt }, id) => (
           <View
             key={id}
             style={{
@@ -43,7 +43,10 @@ const LeaderboardHistory = (props) => {
                 <BOLD text="Name" /> {name}
               </Text>
               <Text style={{ fontSize: 18 }}>
-                <BOLD text="Duration: " /> {timeFormatter(points)}
+                <BOLD text="Points Accumulated: " /> {points}
+              </Text>
+              <Text style={{ fontSize: 18 }}>
+                <BOLD text="Duration: " /> {timeFormatter(duration)}
               </Text>
             </View>
             <Text style={{ fontStyle: "italic" }}>

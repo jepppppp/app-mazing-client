@@ -34,7 +34,10 @@ const ManageUser = (props) => {
     await axios_config
       .get("user")
       .then((res) => {
-        let response = res?.data?.data?.filter((rd) => rd.role == 2);
+        console.log(res?.data?.data[0]);
+        let response = res?.data?.data?.filter(
+          (rd) => rd.role == 2 && rd.grade == props.credentials?.grade
+        );
         setDatas(response);
         console.log(response);
       })
