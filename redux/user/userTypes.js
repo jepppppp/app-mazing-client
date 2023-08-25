@@ -1,0 +1,5 @@
+export const SET_CREDENTIALS = "SET_CREDENTIALS";
+export const SET_MODULES = "SET_MODULES";
+export const SET_VIDEOS = "SET_VIDEOS";
+export const SET_QUIZZES = "SET_QUIZZES";
+export const SET_DELETE_MODAL = "SET_DELETE_MODAL";

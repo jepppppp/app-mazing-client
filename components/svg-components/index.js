@@ -1,0 +1,13 @@
+export { default as WaveSvg } from "./Wave";
+export { default as PlaySvg } from "./Play";
+export { default as LearnSvg } from "./Learn";
+export { default as LeaderboardSvg } from "./Leaderboard";
+export { default as AccountSvg } from "./Account";
+export { default as RightArrowSvg } from "./RightArrow";
+export { default as ModuleSvg } from "./Module";
+export { default as VideoSvg } from "./Video";
+export { default as TeacherSvg } from "./Teacher";
+export { default as TrophySvg } from "./Trophy";
+export { default as DownArrowSvg } from "./DownArrow";
+export { default as CameraSvg } from "./Camera";
+export { default as RightArrowV2Svg } from "./RightArrowV2";
