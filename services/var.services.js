@@ -12,7 +12,7 @@ export const GRADE_LEVEL = [
 export const PASSING_SCORE = {
   KINDER: 10,
   GRADE13: 20,
-  GRADE46: 6,
+  GRADE46: 30,
 };
 export const CAROUSEL_DATA = [
   {

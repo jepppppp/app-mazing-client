@@ -34,25 +34,25 @@ const LeaderboardHistory = (props) => {
             style={{
               padding: 10,
               flexDirection: "row",
-              alignItems: "center",
+              alignItems: "flex-start",
               justifyContent: "space-between",
             }}
           >
             <View>
-              <Text style={{ fontSize: 18, textTransform: "capitalize" }}>
+              <Text style={{ fontSize: 17, textTransform: "capitalize" }}>
                 <BOLD text="Name" /> {name}
               </Text>
-              <Text style={{ fontSize: 18 }}>
-                <BOLD text="Points Accumulated: " /> {points}
+              <Text style={{ fontSize: 17 }}>
+                <BOLD text="Points: " /> {points}
               </Text>
-              <Text style={{ fontSize: 18 }}>
+              <Text style={{ fontSize: 17 }}>
                 <BOLD text="Duration: " /> {timeFormatter(duration)}
               </Text>
+              <Text style={{ fontSize: 17, fontStyle: "italic" }}>
+                <BOLD text="Date:" />{" "}
+                {moment(createdAt).format("MMM DD YYYY HH:mm A")}
+              </Text>
             </View>
-            <Text style={{ fontStyle: "italic" }}>
-              <BOLD text="Date:" />{" "}
-              {moment(createdAt).format("MMM DD YYYY HH:mm A")}
-            </Text>
           </View>
         ))}
       </ScrollView>

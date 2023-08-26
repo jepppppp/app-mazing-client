@@ -236,7 +236,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
             }}
           >
             <Text style={{ fontSize: 17, fontFamily: "semibold" }}>
-              Top Scorer
+              Top Score
             </Text>
             {
               // is teacher
@@ -260,7 +260,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
               numColumns={1}
               data={data}
               contentContainerStyle={{
-                padding: 20,
+                paddingHorizontal: 20,
               }}
               keyExtractor={(item, key) => "user-" + key}
               renderItem={({ item, index }) => (
@@ -283,14 +283,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
                   >
                     <Text
                       style={{
-                        fontSize:
-                          index == 0
-                            ? 23
-                            : index == 1
-                            ? 21
-                            : index == 2
-                            ? 19
-                            : 17,
+                        fontSize: 17,
                         marginRight: 5,
                         fontFamily: "semibold",
                         color: index == 0 && colors.blue,
@@ -301,14 +294,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
 
                     <Text
                       style={{
-                        fontSize:
-                          index == 0
-                            ? 23
-                            : index == 1
-                            ? 21
-                            : index == 2
-                            ? 19
-                            : 17,
+                        fontSize: 17,
                         paddingHorizontal: 5,
                         fontFamily: index == 0 ? "semibold" : "regular",
                         color: index == 0 && colors.blue,
@@ -331,14 +317,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
                     <Text
                       style={{
                         fontFamily: index == 0 ? "semibold" : "regular",
-                        fontSize:
-                          index == 0
-                            ? 23
-                            : index == 1
-                            ? 21
-                            : index == 2
-                            ? 19
-                            : 17,
+                        fontSize: 17,
                         color: index == 0 && colors.blue,
                       }}
                     >
