@@ -21,7 +21,7 @@ const Timer = ({
   credentials,
   helpHandler,
 }) => {
-  const MAX = 30;
+  const MAX = 300;
   const timeRef = useRef();
   const [countDown, setCountDown] = useState(MAX);
   const highscoreDoneRef = useRef(false);
@@ -63,6 +63,7 @@ const Timer = ({
       game_title: game_number,
       name: `${credentials?.first_name} ${credentials?.last_name}`,
       points: points,
+      grade: credentials?.grade,
       duration: countDown == 1 ? 0 : countDown,
     };
     console.log("pasok moto", newData);

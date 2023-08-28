@@ -58,9 +58,15 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
       .then((res) => {
         let d =
           credentials?.role == 2
-            ? res?.data?.data.filter((d) => d.lrn == credentials?.id_number)
-            : uniqueArray(res?.data?.data);
-        setData(d);
+            ? res?.data?.data.filter(
+                (d) =>
+                  d.lrn == credentials?.id_number &&
+                  d?.grade == credentials?.grade
+              )
+            : uniqueArray(
+                res?.data?.data.filter((d) => d?.grade == credentials?.grade)
+              );
+        setData(d.sort((a, b) => a.name.localeCompare(b.name)));
       })
       .catch((e) => console.log(e));
   };
@@ -236,7 +242,7 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
             }}
           >
             <Text style={{ fontSize: 17, fontFamily: "semibold" }}>
-              Top Score
+              {credentials?.role == 2 ? "Top Score" : "Students"}
             </Text>
             {
               // is teacher
