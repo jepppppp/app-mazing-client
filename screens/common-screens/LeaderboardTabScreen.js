@@ -2,7 +2,7 @@ import {
   Animated,
   Easing,
   FlatList,
-  Image,
+  Impoints,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -58,11 +58,23 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
       .then((res) => {
         let d =
           credentials?.role == 2
-            ? res?.data?.data.filter(
-                (d) =>
-                  d.lrn == credentials?.id_number &&
-                  d?.grade == credentials?.grade
-              )
+            ? res?.data?.data
+                .filter(
+                  (d) =>
+                    d.lrn == credentials?.id_number &&
+                    d?.grade == credentials?.grade
+                )
+                .sort((a, b) => {
+                  // Compare by 'points' first
+                  if (a.points < b.points) return 1;
+                  if (a.points > b.points) return -1;
+
+                  // If 'points' is the same, compare by 'duration'
+                  if (a.duration < b.duration) return 1;
+                  if (a.duration > b.duration) return -1;
+
+                  return 0; // Objects are equal in both keys
+                })
             : uniqueArray(
                 res?.data?.data.filter((d) => d?.grade == credentials?.grade)
               ).sort((a, b) => a.name.localeCompare(b.name));
@@ -177,9 +189,9 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
                         minHeight: (width - 40) / 3,
                       }}
                     >
-                      {item?.image && (
-                        <Image
-                          source={item?.image}
+                      {item?.impoints && (
+                        <Impoints
+                          source={item?.impoints}
                           style={{ width: 30, height: 30, resizeMode: "cover" }}
                         />
                       )}
