@@ -65,8 +65,8 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
               )
             : uniqueArray(
                 res?.data?.data.filter((d) => d?.grade == credentials?.grade)
-              );
-        setData(d.sort((a, b) => a.name.localeCompare(b.name)));
+              ).sort((a, b) => a.name.localeCompare(b.name));
+        setData(d);
       })
       .catch((e) => console.log(e));
   };
