@@ -2,7 +2,7 @@ import {
   Animated,
   Easing,
   FlatList,
-  Impoints,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -189,9 +189,9 @@ const LeaderboardTabScreen = ({ width, credentials, navigation }) => {
                         minHeight: (width - 40) / 3,
                       }}
                     >
-                      {item?.impoints && (
-                        <Impoints
-                          source={item?.impoints}
+                      {item?.image && (
+                        <Image
+                          source={item?.image}
                           style={{ width: 30, height: 30, resizeMode: "cover" }}
                         />
                       )}
