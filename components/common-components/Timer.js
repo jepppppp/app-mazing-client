@@ -21,7 +21,7 @@ const Timer = ({
   credentials,
   helpHandler,
 }) => {
-  const MAX = 30;
+  const MAX = 300;
   const timeRef = useRef();
   const [countDown, setCountDown] = useState(MAX);
   const highscoreDoneRef = useRef(false);
